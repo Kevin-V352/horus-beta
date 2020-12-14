@@ -1,13 +1,15 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import './App.css';
+import { Route } from 'react-router-dom';
+import SearchBar from './components/header/header';
+import Dashboard from './components/body/dashboard/dashboard';
 
 //----Components----//
-import Header from './components/header/header';
 
 function App() {
   return (
     <div>
+      <Route path='/' component={SearchBar}/>
+      <Route exact path='/Dashboard' component={Dashboard}/>
     </div>
   );
 }
