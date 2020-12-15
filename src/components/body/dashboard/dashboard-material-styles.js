@@ -6,9 +6,9 @@ const dashboardStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#283747',
         display: 'flex',
-        justifyContent: 'center',
-        width: '100%'
+        flexDirection: 'column',
+        alignItems: 'center',
     }
-}))
+}));
 
 export default dashboardStyles;

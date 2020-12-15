@@ -33,7 +33,7 @@ const PrincipalInfo = ({ name, currentTemp, description, humidity, windSpeed, vi
                     {currentTemp} °C
                 </Typography>
                 <Typography className={classes.description} color="textSecondary">
-                    {ChangeDescription(description)}
+                    {/* {ChangeDescription(description)} */}
                 </Typography>
                 <Grid container>
                     <Grid item lg={4}>
