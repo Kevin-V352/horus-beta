@@ -4,9 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 //<--- Material styles --->//
 const dashboardStyles = makeStyles(theme => ({
     root: {
-        backgroundColor: 'red',
+        backgroundColor: '#283747',
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        width: '100%'
     }
 }))
 

@@ -5,26 +5,40 @@ import { makeStyles } from '@material-ui/core/styles';
 const PrincipalInfoStyles = makeStyles({
 
     root: {
-        minWidth: '40%',
+        minWidth: '44%',
         backgroundColor: 'rgba(0, 0, 0, .3)',
+        margin: '2%'
+    },
+    cardContent: {
+        width: '95%',
         display: 'flex',
-        justifyContent: 'center',
-        justifySelf: 'center',
-        
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     title: {
         fontFamily: 'Red Hat Text, sans-serif',
         fontSize: '140%',
+        color: 'white'
     },
     currentTemp: {
         fontFamily: 'Red Hat Text, sans-serif',
-        fontSize: '300%',
-        textAlign: 'center'
+        fontSize: '400%',
+        textAlign: 'center',
+        color: 'white'
     },
-    pos: {
+    description: {
         fontFamily: 'Red Hat Text, sans-serif',
         marginBottom: 12,
+        textAlign: 'center',
+        color: 'white',
+        fontSize: '130%',
     },
+    infoItems: {
+        color: 'white',
+        fontFamily: 'Red Hat Text, sans-serif',
+        textAlign: 'center'
+    }
 });
 
 export default PrincipalInfoStyles;
