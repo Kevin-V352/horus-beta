@@ -20,6 +20,7 @@ const PrincipalInfo = ({ name, currentTemp, description, humidity, windSpeed, vi
     };
 
     const ChangeDescription = (str) => {
+        if(!str) return undefined
         return str.replace(str[0], str[0].toUpperCase());
     };
 
@@ -33,7 +34,7 @@ const PrincipalInfo = ({ name, currentTemp, description, humidity, windSpeed, vi
                     {currentTemp} °C
                 </Typography>
                 <Typography className={classes.description} color="textSecondary">
-                    {/* {ChangeDescription(description)} */}
+                    {ChangeDescription(description)}
                 </Typography>
                 <Grid container>
                     <Grid item lg={4}>

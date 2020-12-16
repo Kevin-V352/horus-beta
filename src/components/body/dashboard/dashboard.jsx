@@ -19,12 +19,13 @@ const Dashboard = () => {
 
     const classes = dashboardStyles();
 
+
     return (
             <Box className={classes.root} fluid>
                 <PrincipalInfo
                     name={weather.timeZone}
                     currentTemp={Math.round(weather.current.temp)}
-                    /* description={weather.current.weather[0].description} */
+                    description={weather.current.weather ? weather.current.weather[0].description : null}
                     humidity={weather.current.humidity}
                     windSpeed={weather.current.wind_speed}
                     visibility={weather.current.visibility}
