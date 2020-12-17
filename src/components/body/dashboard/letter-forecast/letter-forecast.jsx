@@ -1,35 +1,35 @@
 import React from 'react';
-import { Typography, Grid, Paper, CardMedia } from '@material-ui/core';
-import Image from "material-ui-image";
+import { Typography, Grid, Paper } from '@material-ui/core';
+
 
 //styles
 import letterForecastStyles from './letter-forecast-material-styles';
 
-const LetterForecast = ({ weeklyForecast }) => {
+const LetterForecast = ({ weeklyForecast, timeZone }) => {
 
     const classes = letterForecastStyles();
 
     const ChangeDescription = (str) => {
         return str.replace(str[0], str[0].toUpperCase());
     };
+    
 
-    const dateFormat = (index) => {
+    const dateFormat = (index, timeZone) => {
         const week = ['do', 'lu', 'ma', 'mi', 'ju', 'vi', 'sá'];
-        const today = new Date();
-        const forecastDay = new Date();
-        const resultDay = forecastDay.setDate(today.getDate() + (index + 1));
+        const currentDay = new Date().toLocaleDateString('en-GB', { timeZone: timeZone }); //Dia actual de la localizacion buscada.
+        const resultDay = new Date().setDate(parseInt(currentDay.slice(0,2)) + (index + 1)); //Dia de la semana en milisegundos.
 
-        return week[new Date(resultDay).getUTCDay()] + ". " + new Date(resultDay).getUTCDate().toString();
+        return week[new Date(resultDay).getUTCDay()] + ". " + new Date(resultDay).getUTCDate().toString(); //Retorna el dia de la semana junto con su numero de fecha.
     };
 
     return (
         <Grid container className={classes.root}>
             {
                 weeklyForecast.slice(1, 7).map((day, index) => (
-                    <Grid item lg={2}>
+                    <Grid item lg={2} key={index}>
                         <Paper className={classes.paper} index={index}>
                             <Typography className={classes.date}>
-                                {dateFormat(index)}
+                                {dateFormat(index, timeZone)}
                             </Typography>
                             <Grid container className={classes.tempBox}>
                                 <Typography className={classes.tempMax}>
@@ -46,10 +46,6 @@ const LetterForecast = ({ weeklyForecast }) => {
                     </Grid>
                 ))
             }
-            {/* <Image
-                style={{height: 100, width: 100}}
-                src="../cloud.png"
-            /> */}
         </Grid>
     );
 };

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getForecast } from '../../../redux/actions-creators/weather';
-import { Box, Grid } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 import PrincipalInfo from './principal-info/principal-info';
 import LetterForecast from './letter-forecast/letter-forecast';
+import DailyChart from './daily-chart/daily-chart';
 
 import dashboardStyles from './dashboard-material-styles'; 
 
@@ -21,7 +22,7 @@ const Dashboard = () => {
 
 
     return (
-            <Box className={classes.root} fluid>
+            <Box className={classes.root}>
                 <PrincipalInfo
                     name={weather.timeZone}
                     currentTemp={Math.round(weather.current.temp)}
@@ -32,7 +33,8 @@ const Dashboard = () => {
                     pressure={weather.current.pressure}
                     dewPoint={Math.round(weather.current.dew_point)}
                 />
-                <LetterForecast weeklyForecast={weather.daily}/>
+                <LetterForecast weeklyForecast={weather.daily} timeZone={weather.timeZone}/>
+                <DailyChart hourlyForecast={weather.hourly} timeZone={weather.timeZone}/>
             </Box>
     );
 };
