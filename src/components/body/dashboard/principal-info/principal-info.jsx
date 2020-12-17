@@ -1,14 +1,14 @@
 import React from 'react';
 
+//<--- Redux--->//
+import { useSelector } from 'react-redux';
+
 //<--- Material--->//
-
-//dependencies
-import { Card, CardContent, Typography, Container, Grid, Paper } from '@material-ui/core';
-
-//styles
+import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import PrincipalInfoStyles from './principal-info-material-styles';
 
 const PrincipalInfo = ({ name, currentTemp, description, humidity, windSpeed, visibility, pressure, dewPoint }) => {
+
     const classes = PrincipalInfoStyles();
 
     const changeFormat = (str) => {
