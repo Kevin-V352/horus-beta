@@ -11,7 +11,6 @@ import headerStyles from './header-material-styles';
 //Icons
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
 //<--- Components --->//
 import SearchBar from './search-bar/search-bar';
@@ -30,8 +29,9 @@ const Header = () => {
                         className={classes.menuButton}
                         color="inherit"
                         aria-label="open drawer"
+                        onClick={() => console.log('ira')}
                     >
-                        <MenuOpenIcon />
+                        <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
                         Horus
@@ -40,7 +40,7 @@ const Header = () => {
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
-                        <SearchBar/>
+                        <SearchBar />
                     </div>
                 </Toolbar>
             </AppBar>

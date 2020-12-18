@@ -6,6 +6,7 @@ import { Box } from '@material-ui/core';
 import PrincipalInfo from './principal-info/principal-info';
 import LetterForecast from './letter-forecast/letter-forecast';
 import DailyChart from './daily-chart/daily-chart';
+import LateralMenu from './lateral-menu/lateral-menu';
 
 import dashboardStyles from './dashboard-material-styles'; 
 
@@ -23,6 +24,7 @@ const Dashboard = () => {
 
     return (
             <Box className={classes.root}>
+                <LateralMenu/>
                 <PrincipalInfo
                     name={weather.timeZone}
                     currentTemp={Math.round(weather.current.temp)}

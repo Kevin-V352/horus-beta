@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import SearchBar from './components/header/header';
+import Header from './components/header/header';
 import Dashboard from './components/body/dashboard/dashboard';
 
 //----Components----//
@@ -8,7 +8,7 @@ import Dashboard from './components/body/dashboard/dashboard';
 function App() {
   return (
     <div>
-      <Route path='/' component={SearchBar}/>
+      <Route path='/' component={Header}/>
       <Route exact path='/Dashboard' component={Dashboard}/>
     </div>
   );
