@@ -5,6 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const letterForecastStyles = makeStyles(theme => ({
     root: {
         justifyContent: 'space-around',
+        backgroundColor: 'rgba(0, 0, 0, .65)',
+        padding: '1%',
+        width: '95%',
+        borderRadius: 5
     },
     paper: {
         padding: theme.spacing(5),

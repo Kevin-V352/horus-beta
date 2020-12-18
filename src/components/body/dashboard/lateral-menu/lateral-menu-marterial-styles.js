@@ -9,7 +9,7 @@ const lateralMenuStyles = makeStyles(theme => ({
     },
     drawerPaper: {
         width: 240,
-        backgroundColor: 'rgba(121, 125, 127 , .1)'
+        backgroundColor: 'rgba(0, 0, 0, .4)',
     },
     header: {
         height: '10%',

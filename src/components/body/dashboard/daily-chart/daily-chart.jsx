@@ -29,7 +29,7 @@ const DailyChart = ({ hourlyForecast, timeZone }) => {
     };
 
     return (
-        <Container style={{ marginTop: '4rem' }}>
+        <Container style={{ margin: '2rem', backgroundColor: 'rgba(0, 0, 0, .65)', borderRadius: 5, paddingTop: '1rem' }}>
             <Line
                 data={{
                     labels: getHour(timeZone),
