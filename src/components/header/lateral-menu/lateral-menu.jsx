@@ -1,16 +1,26 @@
+//<---React--->//
 import React from 'react';
 
-import { Drawer, Divider, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+//<--- Material--->//
+import { 
+    Drawer,
+    Divider, 
+    ListItem, 
+    ListItemIcon,
+    ListItemText 
+} from '@material-ui/core';
 
+//styles
 import lateralMenuStyles from './lateral-menu-marterial-styles';
 
+//Icons
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import HomeIcon from '@material-ui/icons/Home';
 import MapIcon from '@material-ui/icons/Map';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import CodeIcon from '@material-ui/icons/Code';
 
-const LateralMenu = () => {
+const LateralMenu = ({ isOpen, closeDrawer }) => {
 
     const classes = lateralMenuStyles();
 
@@ -22,9 +32,12 @@ const LateralMenu = () => {
                 paper: classes.drawerPaper
             }}
             anchor='left'
-            open={false}
+            open={isOpen}
+            onClose={() => closeDrawer(false)}
         >
-            <ListItem className={classes.header}>
+            <ListItem 
+                className={classes.header}  
+                onClick={() => closeDrawer(false)}>
                 <ListItemIcon>
                     <HomeIcon className={classes.icon}/>
                 </ListItemIcon>
@@ -32,7 +45,6 @@ const LateralMenu = () => {
                     Inicio
                 </ListItemText>
             </ListItem>
-            <Divider />
             <ListItem button>
                 <ListItemIcon>
                     <HomeIcon className={classes.icon}/>

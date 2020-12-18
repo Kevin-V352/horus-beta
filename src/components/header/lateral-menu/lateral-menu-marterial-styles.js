@@ -13,7 +13,7 @@ const lateralMenuStyles = makeStyles(theme => ({
     },
     header: {
         height: '10%',
-        backgroundColor: '#283747'
+        backgroundColor: 'background-color: rgba(15, 48, 87, .91)'
     },
     icon: {
         color: 'white'

@@ -1,8 +1,18 @@
+//<---React--->//
 import React from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+
+//<--- Redux--->//
+import { useSelector } from 'react-redux';
+
+//<---Chart--->//
+import { Line } from 'react-chartjs-2';
+
+//<---Material--->//
 import { Container } from '@material-ui/core';
 
-const DailyChart = ({ hourlyForecast, timeZone }) => {
+const DailyChart = () => {
+
+    const weather = useSelector((state) => state);
 
     const getTemp = (arr) => {
         let result = [];
@@ -32,10 +42,10 @@ const DailyChart = ({ hourlyForecast, timeZone }) => {
         <Container style={{ margin: '2rem', backgroundColor: 'rgba(0, 0, 0, .65)', borderRadius: 5, paddingTop: '1rem' }}>
             <Line
                 data={{
-                    labels: getHour(timeZone),
+                    labels: getHour(weather.timeZone),
                     datasets: [{
                         label: 'Por horas',
-                        data: getTemp(hourlyForecast),
+                        data: getTemp(weather.hourly),
                         borderWidth: 3,
                         backgroundColor: 'rgba( 46, 134, 193, .4)',
                         borderColor: 'rgba( 46, 134, 193)',

@@ -1,14 +1,14 @@
 //<--- Material dependecies --->//
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { 
+    fade,
+    makeStyles 
+} from '@material-ui/core/styles';
 
 //<--- Material styles --->//
 const headerStyles = makeStyles(theme => ({
 
     root: {
         flexGrow: 1, 
-    },
-    toolbar: {
-        backgroundColor: 'rgba(28, 40, 51, .9)',
     },
     menuButton: {
         marginRight: theme.spacing(2),

@@ -1,8 +1,7 @@
-import React from 'react';
+//<---React--->//
+import React, { useState } from 'react';
 
 //<--- Material--->//
-
-//dependencies
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 
 //styles
@@ -14,22 +13,25 @@ import SearchIcon from '@material-ui/icons/Search';
 
 //<--- Components --->//
 import SearchBar from './search-bar/search-bar';
+import LateralMenu from './lateral-menu/lateral-menu';
 
 
 const Header = () => {
 
     const classes = headerStyles();
 
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position='fixed'>
                 <Toolbar>
                     <IconButton
                         edge="start"
                         className={classes.menuButton}
                         color="inherit"
                         aria-label="open drawer"
-                        onClick={() => console.log('ira')}
+                        onClick={() => setIsOpen(true)}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -44,6 +46,7 @@ const Header = () => {
                     </div>
                 </Toolbar>
             </AppBar>
+            <LateralMenu isOpen={isOpen} closeDrawer={setIsOpen}/>
         </div>
     );
 }

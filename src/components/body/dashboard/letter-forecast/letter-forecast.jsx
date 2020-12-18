@@ -1,11 +1,21 @@
+//<---React--->//
 import React from 'react';
-import { Typography, Grid, Paper, Box } from '@material-ui/core';
 
+//<--- Redux--->//
+import { useSelector } from 'react-redux';
+
+//<--- Material--->//
+import { 
+        Typography,
+        Grid 
+} from '@material-ui/core';
 
 //styles
 import letterForecastStyles from './letter-forecast-material-styles';
 
-const LetterForecast = ({ weeklyForecast, timeZone }) => {
+const LetterForecast = () => {
+
+    const weather = useSelector((state) => state);
 
     const classes = letterForecastStyles();
 
@@ -25,11 +35,11 @@ const LetterForecast = ({ weeklyForecast, timeZone }) => {
     return (
         <Grid container className={classes.root}>
             {
-                weeklyForecast.slice(1, 7).map((day, index) => (
+                weather.daily.slice(1, 7).map((day, index) => (
                     <Grid item lg={1} key={index}>
 
                         <Typography className={classes.date}>
-                            {dateFormat(index, timeZone)}
+                            {dateFormat(index, weather.timeZone)}
                         </Typography>
                         <Grid container className={classes.tempBox}>
                             <Typography className={classes.tempMax}>
