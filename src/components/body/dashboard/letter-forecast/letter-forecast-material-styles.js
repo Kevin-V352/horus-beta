@@ -23,13 +23,13 @@ const letterForecastStyles = makeStyles(theme => ({
         color: 'white',
         fontSize: '140%',
         fontFamily: 'Red Hat Text, sans-serif',
-        width: '120%'
+        textAlign: 'center'
     },
     tempBox: {
         display: 'flex',
         justifyContent: 'space-between',
         fontFamily: 'Red Hat Text, sans-serif',
-        width: '5.5rem'
+        textAlign: 'center'
     },
     tempMax: {
         color: 'white',
@@ -44,6 +44,7 @@ const letterForecastStyles = makeStyles(theme => ({
     description: {
         color: 'white',
         fontFamily: 'Red Hat Text, sans-serif',
+        textAlign: 'center'
     },
     imageIcon: {
         height: '100%'

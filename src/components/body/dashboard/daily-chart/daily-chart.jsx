@@ -13,6 +13,10 @@ import { Container } from '@material-ui/core';
 const DailyChart = () => {
 
     const weather = useSelector((state) => state);
+    
+    const fontFamily = 'Red Hat Text, sans-serif';
+    const fontSize = 13;
+    const color = 'white';
 
     const getTemp = (arr) => {
         let result = [];
@@ -28,7 +32,7 @@ const DailyChart = () => {
         let nextHour;
         let result = [];
 
-        if (!timeZone) return alert('ya sabes');
+        if (!timeZone) return
 
         currentHour = parseInt(new Date().toLocaleTimeString('en-GB', { timeZone: timeZone }).slice(0, 2));
         for (let i = 0; i < 12; i++) {
@@ -64,9 +68,9 @@ const DailyChart = () => {
                                 display: false,
                             },
                             ticks: {
-                                fontColor: 'white',
-                                fontFamily: 'Red Hat Text, sans-serif',
-                                fontSize: 13,
+                                fontColor: color,
+                                fontFamily: fontFamily,
+                                fontSize: fontSize,
                                 lineHeight: 4.3,
                                 padding: 12,
                                 callback: value => value + '°'
@@ -77,16 +81,16 @@ const DailyChart = () => {
                                 display: false,
                             },
                             ticks: {
-                                fontColor: 'white',
-                                fontFamily: 'Red Hat Text, sans-serif',
-                                fontSize: 13,
+                                fontColor: color,
+                                fontFamily: fontFamily,
+                                fontSize: fontSize,
                             }
                         }],
                     },
                     legend: {
                         labels: {
-                            fontColor: 'white',
-                            fontFamily: 'Red Hat Text, sans-serif',
+                            fontColor: color,
+                            fontFamily: fontFamily,
                             fontSize: 20
                         },
                     },

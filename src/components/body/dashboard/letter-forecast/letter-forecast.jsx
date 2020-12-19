@@ -37,7 +37,6 @@ const LetterForecast = () => {
             {
                 weather.daily.slice(1, 7).map((day, index) => (
                     <Grid item lg={1} key={index}>
-
                         <Typography className={classes.date}>
                             {dateFormat(index, weather.timeZone)}
                         </Typography>
@@ -52,7 +51,6 @@ const LetterForecast = () => {
                         <Typography className={classes.description}>
                             {ChangeDescription(day.weather[0].description)}
                         </Typography>
-
                     </Grid>
                 ))
             }
