@@ -21,7 +21,7 @@ const Dashboard = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getForecast('40.4167047', '-3.7035825'));
+        dispatch(getForecast('40.7127281', '-74.0060152'));
     }, []);
 
     const classes = dashboardStyles();

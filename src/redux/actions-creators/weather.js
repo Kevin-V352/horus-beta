@@ -4,7 +4,7 @@ import { GET_FORECAST } from '../actions-types';
 const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY
 
 export function getForecast (lat, lon) {
-    return function (dispatch){
+    return function (dispatch) {
         return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&lang=es&units=metric`)
         .then(wheater => {
             console.log(wheater)
@@ -16,3 +16,12 @@ export function getForecast (lat, lon) {
         .catch (error => console.log('ERROR_WEATHER_API ', error))
     };
 };
+
+export function getMap (layer, z, x, y) {
+    return function (dispatch) {
+        return axios.get(`https://tile.openweathermap.org/map/${layer}/${z}/${x}/${y}.png?appid=${API_KEY}`)
+        .then(response => {
+            console.log(response)
+        })
+    }
+}

@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core';
 //----Components----//
 import Header from './components/header/header';
 import Dashboard from './components/body/dashboard/dashboard';
+import Map from './components/body/map/map';
 
 const App = () => {
 
@@ -34,6 +35,7 @@ const App = () => {
     <Box className={classes.root}>
       <Route path='/' component={Header} />
       <Route exact path='/Dashboard' component={Dashboard} />
+      <Route exact path='/Map' component={Map} />
     </Box>
   );
 }
