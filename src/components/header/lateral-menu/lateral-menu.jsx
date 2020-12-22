@@ -47,7 +47,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                         </ListItemIcon>
                         <ListItemText className={classes.textOption}>
                             Inicio
-                </ListItemText>
+                        </ListItemText>
                     </ListItem>
                 </Link>
                 <Divider />
@@ -57,7 +57,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                     </ListItemIcon>
                     <ListItemText className={classes.textOption}>
                         Favoritos
-                </ListItemText>
+                    </ListItemText>
                 </ListItem>
                 <Divider />
                 <Link to='/Map'>
@@ -67,7 +67,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                         </ListItemIcon>
                         <ListItemText className={classes.textOption}>
                             Mapa
-                </ListItemText>
+                        </ListItemText>
                     </ListItem>
                 </Link>
                 <Divider />
@@ -77,7 +77,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                     </ListItemIcon>
                     <ListItemText className={classes.textOption}>
                         Historial
-                </ListItemText>
+                    </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem button>
@@ -86,7 +86,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                     </ListItemIcon>
                     <ListItemText className={classes.textOption}>
                         Créditos
-                </ListItemText>
+                    </ListItemText>
                 </ListItem>
             </List>
         </Drawer>

@@ -20,6 +20,21 @@ const searchUseStyles = makeStyles(theme => ({
             },
         },
     },
+    list: {
+        padding: 0,
+        zIndex: theme.zIndex.appBar + 1,
+        position: 'absolute',
+        backgroundColor: theme.palette.primary.main,
+        borderRadius: 5,
+        marginTop: '3vh'
+    },
+    selected: {
+        overflow: 'hidden',
+        backgroundColor: 'red'
+    },
+    icon: {
+        color: theme.palette.text.primary
+    },
 }))
 
 export default searchUseStyles;
