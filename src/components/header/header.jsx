@@ -24,14 +24,18 @@ const Header = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position='fixed'>
+            <AppBar 
+                position='fixed'
+                className={classes.appBar}
+                color='primary'
+            >
                 <Toolbar>
                     <IconButton
                         edge="start"
                         className={classes.menuButton}
                         color="inherit"
                         aria-label="open drawer"
-                        onClick={() => setIsOpen(true)}
+                        onClick={() => setIsOpen(!isOpen)}
                     >
                         <MenuIcon />
                     </IconButton>

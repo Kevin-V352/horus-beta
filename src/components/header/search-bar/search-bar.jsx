@@ -14,7 +14,7 @@ const SearchBar = () => {
     return (
         <InputBase
             onChange={e => console.log(e.target.value)}
-            placeholder="Search…"
+            placeholder="Buscar…"
             classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

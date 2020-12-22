@@ -20,30 +20,25 @@ const letterForecastStyles = makeStyles(theme => ({
         textAlign: 'center'
     },
     date: {
-        color: 'white',
+        color: theme.palette.text.primary,
         fontSize: '140%',
-        fontFamily: 'Red Hat Text, sans-serif',
         textAlign: 'center'
     },
     tempBox: {
         display: 'flex',
         justifyContent: 'space-between',
-        fontFamily: 'Red Hat Text, sans-serif',
         textAlign: 'center'
     },
     tempMax: {
-        color: 'white',
+        color: theme.palette.text.primary,
         fontSize: '220%',
-        fontFamily: 'Red Hat Text, sans-serif',
     },
     tempMin: {
-        color: 'grey',
+        color: theme.palette.text.secondary,
         fontSize: '190%',
-        fontFamily: 'Red Hat Text, sans-serif',
     },
     description: {
-        color: 'white',
-        fontFamily: 'Red Hat Text, sans-serif',
+        color: theme.palette.text.primary,
         textAlign: 'center'
     },
     imageIcon: {

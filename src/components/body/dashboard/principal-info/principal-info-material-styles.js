@@ -2,7 +2,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 //<--- Material styles --->//
-const PrincipalInfoStyles = makeStyles({
+const PrincipalInfoStyles = makeStyles(theme => ({
 
     root: {
         minWidth: '44%',
@@ -17,28 +17,24 @@ const PrincipalInfoStyles = makeStyles({
         justifyContent: 'center'
     },
     title: {
-        fontFamily: 'Red Hat Text, sans-serif',
-        fontSize: '140%',
-        color: 'white'
+        color: theme.palette.text.primary,
+        fontSize: '140%', 
     },
     currentTemp: {
-        fontFamily: 'Red Hat Text, sans-serif',
+        color: theme.palette.text.primary,
         fontSize: '400%',
-        textAlign: 'center',
-        color: 'white'
+        textAlign: 'center', 
     },
     description: {
-        fontFamily: 'Red Hat Text, sans-serif',
+        color: theme.palette.text.primary,
         marginBottom: 12,
         textAlign: 'center',
-        color: 'white',
         fontSize: '130%',
     },
     infoItems: {
-        color: 'white',
-        fontFamily: 'Red Hat Text, sans-serif',
+        color: theme.palette.text.primary,
         textAlign: 'center'
     }
-});
+}));
 
 export default PrincipalInfoStyles;

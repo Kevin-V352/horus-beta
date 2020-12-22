@@ -9,7 +9,6 @@ const mapStyles = makeStyles(theme => ({
         justifyContent: 'center',
         padding: '1rem',
         height: '100vh'
-        /* backgroundColor: 'red' */
     }
 }));
 

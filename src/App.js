@@ -10,6 +10,10 @@ import { Route } from 'react-router-dom';
 //<--- Material--->//
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles'
+
+//theme
+import theme from './theme-config';
 
 //----Components----//
 import Header from './components/header/header';
@@ -18,26 +22,28 @@ import Map from './components/body/map/map';
 
 const App = () => {
 
-  const backgroundId = useSelector((state) => state.current.weather ? state.current.weather[0].icon.slice(0, 2) : null);
+	const backgroundId = useSelector((state) => state.current.weather ? state.current.weather[0].icon : null);
 
-  const appStyles = makeStyles(theme => ({
-    root: {
-      backgroundImage: `url(./backgrounds/${backgroundId}.jpg)`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundAttachment: 'fixed',
-    }
-  }));
+	const appStyles = makeStyles(theme => ({
+		root: {
+			backgroundImage: `url(./backgrounds/${backgroundId}.jpg)`,
+			backgroundRepeat: 'no-repeat',
+			backgroundSize: 'cover',
+			backgroundAttachment: 'fixed',
+		}
+	}));
 
-  const classes = appStyles();
+	const classes = appStyles();
 
-  return (
-    <Box className={classes.root}>
-      <Route path='/' component={Header} />
-      <Route exact path='/Dashboard' component={Dashboard} />
-      <Route exact path='/Map' component={Map} />
-    </Box>
-  );
+	return (
+		<ThemeProvider theme={theme}>
+			<Box className={classes.root}>
+				<Route path='/' component={Header} />
+				<Route exact path='/Dashboard' component={Dashboard} />
+				<Route exact path='/Map' component={Map} />
+			</Box>
+		</ThemeProvider>
+	);
 }
 
 export default App;

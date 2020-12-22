@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import {
     Drawer,
     Divider,
+    List,
     ListItem,
     ListItemIcon,
     ListItemText
@@ -30,72 +31,64 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
     return (
         <Drawer
             className={classes.root}
-            variant='temporary'
+            variant='permanent'
             classes={{
-                paper: classes.drawerPaper
+                paper: isOpen ? classes.drawerPaper : classes.drawerPaperContent
             }}
             anchor='left'
             open={isOpen}
             onClose={() => closeDrawer(false)}
         >
-            <ListItem
-                className={classes.header}
-                onClick={() => closeDrawer(false)}>
-                <ListItemIcon>
-                    <HomeIcon className={classes.icon} />
-                </ListItemIcon>
-                <ListItemText className={classes.textOption}>
-                    Inicio
+            <List style={{marginTop: '4rem'}}>
+                <Link to='/Dashboard'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <HomeIcon className={classes.icon} />
+                        </ListItemIcon>
+                        <ListItemText className={classes.textOption}>
+                            Inicio
                 </ListItemText>
-            </ListItem>
-            <Link to='/Dashboard'>
+                    </ListItem>
+                </Link>
+                <Divider />
                 <ListItem button>
                     <ListItemIcon>
-                        <HomeIcon className={classes.icon} />
+                        <BookmarkIcon className={classes.icon} />
                     </ListItemIcon>
                     <ListItemText className={classes.textOption}>
-                        Inicio
+                        Favoritos
                 </ListItemText>
                 </ListItem>
-            </Link>
-            <Divider />
-            <ListItem button>
-                <ListItemIcon>
-                    <BookmarkIcon className={classes.icon} />
-                </ListItemIcon>
-                <ListItemText className={classes.textOption}>
-                    Favoritos
+                <Divider />
+                <Link to='/Map'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <MapIcon className={classes.icon} />
+                        </ListItemIcon>
+                        <ListItemText className={classes.textOption}>
+                            Mapa
                 </ListItemText>
-            </ListItem>
-            <Divider />
-            <Link to='/Map'>
+                    </ListItem>
+                </Link>
+                <Divider />
                 <ListItem button>
                     <ListItemIcon>
-                        <MapIcon className={classes.icon} />
+                        <TimelineIcon className={classes.icon} />
                     </ListItemIcon>
                     <ListItemText className={classes.textOption}>
-                        Mapa
+                        Historial
                 </ListItemText>
                 </ListItem>
-            </Link>
-            <Divider />
-            <ListItem button>
-                <ListItemIcon>
-                    <TimelineIcon className={classes.icon} />
-                </ListItemIcon>
-                <ListItemText className={classes.textOption}>
-                    Historial
+                <Divider />
+                <ListItem button>
+                    <ListItemIcon>
+                        <CodeIcon className={classes.icon} />
+                    </ListItemIcon>
+                    <ListItemText className={classes.textOption}>
+                        Créditos
                 </ListItemText>
-            </ListItem>
-            <Divider />
-            <ListItem button>
-                <ListItemIcon>
-                    <CodeIcon className={classes.icon} />
-                </ListItemIcon>
-                <ListItemText className={classes.textOption}>
-                    Créditos
-                </ListItemText>
-            </ListItem>
+                </ListItem>
+            </List>
         </Drawer>
     );
 };

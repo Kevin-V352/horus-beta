@@ -21,11 +21,10 @@ const Dashboard = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getForecast('40.7127281', '-74.0060152'));
+        dispatch(getForecast('4.6533326', '-74.083652'));
     }, []);
 
     const classes = dashboardStyles();
-
 
     return (
             <Box className={classes.root}>

@@ -1,6 +1,10 @@
+//<--- Axios--->//
 import axios from 'axios';
+
+//<--- Action-types--->//
 import { GET_FORECAST } from '../actions-types';
 
+//<--- API-Key--->//
 const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY
 
 export function getForecast (lat, lon) {
@@ -16,12 +20,3 @@ export function getForecast (lat, lon) {
         .catch (error => console.log('ERROR_WEATHER_API ', error))
     };
 };
-
-export function getMap (layer, z, x, y) {
-    return function (dispatch) {
-        return axios.get(`https://tile.openweathermap.org/map/${layer}/${z}/${x}/${y}.png?appid=${API_KEY}`)
-        .then(response => {
-            console.log(response)
-        })
-    }
-}

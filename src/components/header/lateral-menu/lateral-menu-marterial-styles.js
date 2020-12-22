@@ -4,23 +4,35 @@ import { makeStyles } from '@material-ui/core/styles';
 //<--- Material styles --->//
 const lateralMenuStyles = makeStyles(theme => ({
     root: {
-        width: 240,
-        flexShrink: 0
+        flexShrink: 0,
     },
     drawerPaper: {
-        width: 240,
-        backgroundColor: 'rgba(0, 0, 0, .4)',
+        width: '13vw',
+        backgroundColor: theme.palette.primary.main,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        overflowX: 'hidden'
+    },
+    drawerPaperContent: {
+        width: 70,
+        backgroundColor: theme.palette.primary.main,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        overflowX: 'hidden'
     },
     header: {
         height: '10%',
-        backgroundColor: 'background-color: rgba(15, 48, 87, .91)'
     },
     icon: {
-        color: 'white'
+        marginLeft: '10%',
+        color: theme.palette.text.primary
     },
     textOption: {
-        color: 'white',
-        fontFamily:'Red Hat Text, sans-serif'
+        color: theme.palette.text.primary
     }
 
 }));
