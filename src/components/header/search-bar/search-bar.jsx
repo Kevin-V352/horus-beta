@@ -42,7 +42,8 @@ const SearchBar = ({ isScriptLoaded, isScriptLoadSucceed }) => {
     const handleSelect = async adress => {
         const result = await geocodeByAddress(adress);
         const coordinates = await getLatLng(result[0]);
-        dispatch(getForecast(coordinates.lat, coordinates.lng))
+        dispatch(getForecast(coordinates.lat, coordinates.lng, result[0].formatted_address));
+        setAdress('');
     };
 
     if (isScriptLoaded && isScriptLoadSucceed) {
@@ -71,13 +72,17 @@ const SearchBar = ({ isScriptLoaded, isScriptLoadSucceed }) => {
 
                                     :
 
-                                    suggestions.map(suggestion => {
+                                    suggestions.map((suggestion, index) => {
                                         const style = {
                                             backgroundColor: suggestion.active ? 'rgba(91, 94, 104)' : null,
                                             overflow: 'hidden',
                                         }
                                         return (
-                                            <ListItem {...getSuggestionItemProps(suggestion, { style })} button>
+                                            <ListItem   
+                                                button
+                                                key={index}
+                                                {...getSuggestionItemProps(suggestion, { style })} 
+                                            >
                                                 <ListItemIcon>
                                                     <RoomIcon className={classes.icon}/>
                                                 </ListItemIcon>

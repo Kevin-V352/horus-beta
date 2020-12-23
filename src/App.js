@@ -19,6 +19,7 @@ import theme from './theme-config';
 import Header from './components/header/header';
 import Dashboard from './components/body/dashboard/dashboard';
 import Map from './components/body/map/map';
+import FavoriteList from './components/body/favorites-list/favorite-list';
 
 const App = () => {
 
@@ -41,6 +42,7 @@ const App = () => {
 				<Route path='/' component={Header} />
 				<Route exact path='/Dashboard' component={Dashboard} />
 				<Route exact path='/Map' component={Map} />
+				<Route exact path='/FavoriteList' component={FavoriteList} />
 			</Box>
 		</ThemeProvider>
 	);

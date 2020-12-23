@@ -1,8 +1,11 @@
 //<---React--->//
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+//<--- Redux--->//
+import { useSelector } from 'react-redux';
 
 //<---Leaflet--->//
-import { MapContainer, TileLayer, Marker, Popup, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, LayersControl } from 'react-leaflet';
 
 //styles
 import 'leaflet/dist/leaflet.css';
@@ -13,16 +16,40 @@ import { Box } from '@material-ui/core';
 //styles
 import mapStyles from './map-material-styles';
 
+const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
-const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY
+/* const MapFocused = () => {
+    const map = useMap(() => {
+        map.setView(['40.4167047', '-3.7035825']);
+    }); 
+    return null
+}; */
 
 const Map = () => {
-
     const classes = mapStyles();
+
+    const weather = useSelector((state) => state);
+    const [coordinates, setCoordinates] = useState([]);
+
+    const handlerUpdate = () => {
+        setCoordinates({
+            lat: weather.coordinates[0],
+            lon: weather.coordinates[1]
+        })
+        console.log('SOY LA FUNCION', coordinates)
+    };
+
+    useEffect(() => {
+        console.log('EL USEE', weather.coordinates)
+        handlerUpdate()
+
+    },[weather.coordinates]);
+
+    if(!coordinates.lat) return ( <div>hola</div>)
 
     return (
         <Box className={classes.root}>
-            <MapContainer center={[-32.7434258, -60.7496742]} zoom={11} scrollWheelZoom={false} style={{ height: '85vh', width: '90%', border: '3px black solid' }}>
+            <MapContainer center={[coordinates.lat, coordinates.lon]} zoom={11} scrollWheelZoom={false} style={{ height: '85vh', width: '90%', border: '3px black solid' }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />

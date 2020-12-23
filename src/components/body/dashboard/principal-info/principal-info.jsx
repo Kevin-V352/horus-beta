@@ -2,43 +2,59 @@
 import React from 'react';
 
 //<--- Redux--->//
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addFavorite } from '../../../../redux/actions-creators/weather';
 
 //<--- Material--->//
 import { 
     Card,
     CardContent, 
     Typography, 
-    Grid 
+    Grid,
+    IconButton,
 } from '@material-ui/core';
 
 //styles
 import PrincipalInfoStyles from './principal-info-material-styles';
 
+//Icons
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+
 const PrincipalInfo = () => {
+
+    const dispatch = useDispatch();
 
     const weather = useSelector((state) => state);
 
     const classes = PrincipalInfoStyles();
 
-    const changeFormat = (str) => {
+    /* const changeFormat = (str) => {
         let chars = {
             '/':', ',
             '_': ' '
         };
         return str.replace(/[/_]/g, m => chars[m]);
-    };
+    }; */
 
     const ChangeDescription = (str) => {
         if(!str) return undefined
         return str.replace(str[0], str[0].toUpperCase());
     };
 
+    const handlerFavorite = weather => {
+        const [ lat, lon ] = weather.coordinates;
+        const name = weather.nameLocation
+        dispatch(addFavorite(lat, lon, name));
+    };
+
     return (
         <Card className={classes.root}>
             <CardContent className={classes.cardContent}>
+                <IconButton onClick={() => handlerFavorite(weather)}>
+                    <BookmarkBorderIcon style={{color: 'white'}}/>
+                </IconButton>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    {changeFormat(weather.timeZone)}
+                    {weather.nameLocation}
                 </Typography>
                 <Typography className={classes.currentTemp} variant="h5" component="h2">
                     {Math.round(weather.current.temp)} °C

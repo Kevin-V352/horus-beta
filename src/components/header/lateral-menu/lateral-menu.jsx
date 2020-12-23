@@ -39,7 +39,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
             open={isOpen}
             onClose={() => closeDrawer(false)}
         >
-            <List style={{marginTop: '4rem'}}>
+            <List style={{ marginTop: '4rem' }}>
                 <Link to='/Dashboard'>
                     <ListItem button>
                         <ListItemIcon>
@@ -51,14 +51,16 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                     </ListItem>
                 </Link>
                 <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <BookmarkIcon className={classes.icon} />
-                    </ListItemIcon>
-                    <ListItemText className={classes.textOption}>
-                        Favoritos
-                    </ListItemText>
-                </ListItem>
+                <Link to='/FavoriteList'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <BookmarkIcon className={classes.icon} />
+                        </ListItemIcon>
+                        <ListItemText className={classes.textOption}>
+                            Favoritos
+                        </ListItemText>
+                    </ListItem>
+                </Link>
                 <Divider />
                 <Link to='/Map'>
                     <ListItem button>
