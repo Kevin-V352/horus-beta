@@ -10,6 +10,9 @@ import {
     Grid
 } from '@material-ui/core';
 
+//styles
+import favoriteListStyles from './favorites-list-material-styles';
+
 //<--- Components --->//
 import CardLocation from './card-location/card-location';
 
@@ -17,8 +20,10 @@ const FavoriteList = () => {
 
     const favorites = useSelector((state) => state.favoriteLocations);
 
+    const classes = favoriteListStyles();
+
     return (
-        <Box style={{marginTop: '5rem', marginLeft: '6vw', marginRight: '.8vw',}}>
+        <Box className={classes.root}>
             <Grid container>           
                     {
                         favorites.map((favorite, index) => (

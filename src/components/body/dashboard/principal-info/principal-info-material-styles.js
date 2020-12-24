@@ -18,7 +18,8 @@ const PrincipalInfoStyles = makeStyles(theme => ({
     },
     title: {
         color: theme.palette.text.primary,
-        fontSize: '140%', 
+        fontSize: '140%',
+        textAlign: 'center', 
     },
     currentTemp: {
         color: theme.palette.text.primary,
@@ -34,6 +35,14 @@ const PrincipalInfoStyles = makeStyles(theme => ({
     infoItems: {
         color: theme.palette.text.primary,
         textAlign: 'center'
+    },
+    icon: {
+        color: theme.palette.text.primary,
+        fontSize: '150%'
+    },
+    button: {
+        paddingTop: 0,
+        paddingLeft: 0
     }
 }));
 

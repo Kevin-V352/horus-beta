@@ -1,4 +1,4 @@
-import { GET_FORECAST, ADD_FAVORITE } from '../actions-types';
+import { GET_FORECAST, ADD_FAVORITE, DELETE_FAVORITE } from '../actions-types';
 
 const initialState = {
     current: {},
@@ -26,6 +26,11 @@ function wheaterReducer (state = initialState, action) {
             return {
                 ...state,
                 favoriteLocations: state.favoriteLocations.concat(action.payload)
+            };
+        case DELETE_FAVORITE:
+            return {
+                ...state,
+                favoriteLocations: state.favoriteLocations.filter(favorite => favorite.name !== action.name)
             };
         default:
             return state;

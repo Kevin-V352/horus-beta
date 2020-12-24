@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 //<--- Action-types--->//
-import { GET_FORECAST, ADD_FAVORITE } from '../actions-types';
+import { GET_FORECAST, ADD_FAVORITE, DELETE_FAVORITE } from '../actions-types';
 
 //<--- API-Key--->//
 const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY
@@ -36,6 +36,15 @@ export function addFavorite (lat, lon, name) {
         dispath({
             type: ADD_FAVORITE,
             payload: ref
+        })
+    };
+};
+
+export function deleteFavorite (name) {
+    return function (dispatch) {
+        dispatch({
+            type: DELETE_FAVORITE,
+            name
         })
     };
 };

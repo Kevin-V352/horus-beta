@@ -7,7 +7,6 @@ const letterForecastStyles = makeStyles(theme => ({
         justifyContent: 'space-around',
         backgroundColor: 'rgba(0, 0, 0, .65)',
         padding: '1%',
-        width: '95%',
         borderRadius: 5
     },
     paper: {
