@@ -13,6 +13,9 @@ import {
 //styles
 import letterForecastStyles from './letter-forecast-material-styles';
 
+//<---CSS-styles--->//
+import styles from './letter-forecast.module.css';
+
 const LetterForecast = () => {
 
     const weather = useSelector((state) => state);
@@ -32,6 +35,11 @@ const LetterForecast = () => {
         return week[new Date(resultDay).getUTCDay()] + ". " + new Date(resultDay).getUTCDate().toString(); //Retorna el dia de la semana junto con su numero de fecha.
     };
 
+    const setIcon = day => {
+        const backgroundId = day.weather ? day.weather[0].icon : null;
+        return `./svg-weather-icons/${backgroundId}.svg`
+    };
+
     return (
         <Grid container className={classes.root}>
             {
@@ -43,11 +51,14 @@ const LetterForecast = () => {
                         <Grid container className={classes.tempBox}>
                             <Typography className={classes.tempMax}>
                                 {Math.round(day.temp.max)}°
-                                </Typography>
+                            </Typography>
                             <Typography className={classes.tempMin}>
                                 {Math.round(day.temp.min)}°
-                                </Typography>
+                            </Typography>
                         </Grid>
+                        <div className={styles.container}>
+                            <img src={setIcon(day)} alt="weather-icon" className={styles.icon}/>
+                        </div>
                         <Typography className={classes.description}>
                             {ChangeDescription(day.weather[0].description)}
                         </Typography>

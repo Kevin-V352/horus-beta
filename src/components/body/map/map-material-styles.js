@@ -6,7 +6,7 @@ const mapStyles = makeStyles(theme => ({
     root: {
         marginLeft: '6vw',
         marginRight: '.8vw',
-        paddingTop: '4.5rem',
+        paddingTop: '10vh',
         display: 'flex',
         justifyContent: 'center',
         height: '100vh'

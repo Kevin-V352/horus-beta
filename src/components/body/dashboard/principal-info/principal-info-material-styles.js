@@ -7,7 +7,7 @@ const PrincipalInfoStyles = makeStyles(theme => ({
     root: {
         minWidth: '44%',
         backgroundColor: 'rgba(0, 0, 0, .65)',
-        margin: '2%'
+        margin: '1%'
     },
     cardContent: {
         width: '95%',
@@ -20,6 +20,7 @@ const PrincipalInfoStyles = makeStyles(theme => ({
         color: theme.palette.text.primary,
         fontSize: '140%',
         textAlign: 'center', 
+        marginBottom: 0
     },
     currentTemp: {
         color: theme.palette.text.primary,
@@ -28,7 +29,7 @@ const PrincipalInfoStyles = makeStyles(theme => ({
     },
     description: {
         color: theme.palette.text.primary,
-        marginBottom: 12,
+        marginBottom: '.5vh',
         textAlign: 'center',
         fontSize: '130%',
     },

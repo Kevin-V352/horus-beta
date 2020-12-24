@@ -22,6 +22,9 @@ import PrincipalInfoStyles from './principal-info-material-styles';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 
+//<---CSS-styles--->//
+import styles from './principal-info.module.css';
+
 const PrincipalInfo = () => {
 
     const dispatch = useDispatch();
@@ -29,14 +32,6 @@ const PrincipalInfo = () => {
     const weather = useSelector((state) => state);
 
     const classes = PrincipalInfoStyles();
-
-    /* const changeFormat = (str) => {
-        let chars = {
-            '/':', ',
-            '_': ' '
-        };
-        return str.replace(/[/_]/g, m => chars[m]);
-    }; */
 
     const ChangeDescription = str => {
         if (!str) return undefined
@@ -57,6 +52,11 @@ const PrincipalInfo = () => {
         dispatch(addFavorite(lat, lon, name));
     };
 
+    const setIcon = weather => {
+        const backgroundId = weather.current.weather ? weather.current.weather[0].icon : null;
+        return `./svg-weather-icons/${backgroundId}.svg`
+    };
+
     return (
         <Card className={classes.root}>
             <CardContent className={classes.cardContent}>
@@ -69,6 +69,9 @@ const PrincipalInfo = () => {
                         <Typography className={classes.currentTemp} variant="h5" component="h2">
                             {Math.round(weather.current.temp)} °C
                         </Typography>
+                        <div className={styles.container}>
+                            <img src={setIcon(weather)} alt="weather-icon" className={styles.icon}/>
+                        </div>
                         <Typography className={classes.description} color="textSecondary">
                             {ChangeDescription(weather.current.weather ? weather.current.weather[0].description : null)}
                         </Typography>
@@ -88,7 +91,6 @@ const PrincipalInfo = () => {
                                         :
                                         <BookmarkBorderIcon className={classes.icon} />
                                 }
-
                             </IconButton>
                         </Tooltip>
                     </Grid>

@@ -9,7 +9,7 @@ const dashboardStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: '5%'
+        paddingTop: '9vh'
     }
 }));
 
