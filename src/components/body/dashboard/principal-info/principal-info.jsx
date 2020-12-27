@@ -100,7 +100,7 @@ const PrincipalInfo = () => {
                         <Typography className={classes.infoItems}>Barómetro: {weather.current.pressure} hPa</Typography>
                     </Grid>
                     <Grid item lg={4}>
-                        <Typography className={classes.infoItems}>Viento: {weather.current.wind_speed}</Typography>
+                        <Typography className={classes.infoItems}>Viento: {weather.current.wind_speed} m/s</Typography>
                     </Grid>
                     <Grid item lg={4}>
                         <Typography className={classes.infoItems}>Visibilidad: {weather.current.visibility / 1000}km</Typography>

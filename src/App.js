@@ -20,6 +20,7 @@ import Header from './components/header/header';
 import Dashboard from './components/body/dashboard/dashboard';
 import Map from './components/body/map/map';
 import FavoriteList from './components/body/favorites-list/favorite-list';
+import HistoricalWeather from './components/body/historical-weather/historical-weather';
 
 const App = () => {
 
@@ -43,6 +44,7 @@ const App = () => {
 				<Route exact path='/Dashboard' component={Dashboard} />
 				<Route exact path='/Map' component={Map} />
 				<Route exact path='/FavoriteList' component={FavoriteList} />
+				<Route exact path='/HistoricalWeather' component={HistoricalWeather} />
 			</Box>
 		</ThemeProvider>
 	);

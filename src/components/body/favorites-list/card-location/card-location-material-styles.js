@@ -24,10 +24,18 @@ const cardLocationStyles = makeStyles(theme => ({
         textAlign: 'center'
     },
     icon: {
-        color: theme.palette.text.secondary
+        color: theme.palette.text.secondary,
+        zIndex: 3,
+        '&:hover' : {
+            color: theme.palette.text.primary
+        }
     },
     button: {
         padding: 0
+    },
+    skeletonIcon: {
+        width: '100%',
+        height: '11.8vh'
     }
 
 }));

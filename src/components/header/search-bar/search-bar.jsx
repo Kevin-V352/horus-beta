@@ -52,6 +52,9 @@ const SearchBar = ({ isScriptLoaded, isScriptLoadSucceed }) => {
                 value={adress}
                 onChange={setAdress}
                 onSelect={handleSelect}
+                searchOptions={{
+                    types: ['(regions)']
+                }}
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>

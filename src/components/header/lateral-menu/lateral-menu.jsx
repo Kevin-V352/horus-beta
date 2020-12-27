@@ -2,7 +2,7 @@
 import React from 'react';
 
 //<---Routing--->//
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 //<--- Material--->//
 import {
@@ -24,6 +24,9 @@ import MapIcon from '@material-ui/icons/Map';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import CodeIcon from '@material-ui/icons/Code';
 
+//<---CSS-styles--->//
+import styles from './lateral-menu.module.css';
+
 const LateralMenu = ({ isOpen, closeDrawer }) => {
 
     const classes = lateralMenuStyles();
@@ -40,7 +43,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
             onClose={() => closeDrawer(false)}
         >
             <List style={{ marginTop: '4rem' }}>
-                <Link to='/Dashboard'>
+                <NavLink to='/Dashboard' className={styles.link}>
                     <ListItem button>
                         <ListItemIcon>
                             <HomeIcon className={classes.icon} />
@@ -49,9 +52,9 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                             Inicio
                         </ListItemText>
                     </ListItem>
-                </Link>
+                </NavLink>
                 <Divider />
-                <Link to='/FavoriteList'>
+                <NavLink to='/FavoriteList' className={styles.link}>
                     <ListItem button>
                         <ListItemIcon>
                             <BookmarkIcon className={classes.icon} />
@@ -60,9 +63,9 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                             Favoritos
                         </ListItemText>
                     </ListItem>
-                </Link>
+                </NavLink>
                 <Divider />
-                <Link to='/Map'>
+                <NavLink to='/Map' className={styles.link}>
                     <ListItem button>
                         <ListItemIcon>
                             <MapIcon className={classes.icon} />
@@ -71,16 +74,18 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                             Mapa
                         </ListItemText>
                     </ListItem>
-                </Link>
+                </NavLink>
                 <Divider />
-                <ListItem button>
-                    <ListItemIcon>
-                        <TimelineIcon className={classes.icon} />
-                    </ListItemIcon>
-                    <ListItemText className={classes.textOption}>
-                        Historial
+                <NavLink to='/HistoricalWeather'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <TimelineIcon className={classes.icon} />
+                        </ListItemIcon>
+                        <ListItemText className={classes.textOption}>
+                            Historial
                     </ListItemText>
-                </ListItem>
+                    </ListItem>
+                </NavLink>
                 <Divider />
                 <ListItem button>
                     <ListItemIcon>

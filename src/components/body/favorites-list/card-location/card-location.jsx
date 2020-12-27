@@ -3,12 +3,16 @@ import React, { useState, useEffect } from 'react';
 
 //<--- Redux--->//
 import { useDispatch } from 'react-redux';
-import { deleteFavorite } from '../../../../redux/actions-creators/weather';
+import { deleteFavorite, getForecast } from '../../../../redux/actions-creators/weather';
 
 //<--- Axios--->//
 import axios from 'axios';
 
+//<---Routing--->//
+import { Link } from 'react-router-dom';
+
 //<--- Material--->//
+import Skeleton from '@material-ui/lab/Skeleton';
 import {
     Card,
     CardContent,
@@ -16,6 +20,7 @@ import {
     IconButton,
     Grid,
 } from '@material-ui/core';
+
 
 //styles
 import cardLocationStyles from './card-location-material-styles';
@@ -46,6 +51,8 @@ const CardLocation = ({ lat, lon, name }) => {
         return str.replace(str[0], str[0].toUpperCase());
     };
 
+    const handlerChange = () => dispatch(getForecast(lat, lon, name));
+
     const handlerDelete = name => dispatch(deleteFavorite(name));
 
     useEffect(() => {
@@ -60,35 +67,52 @@ const CardLocation = ({ lat, lon, name }) => {
     }, []);
 
     return (
-        <Card className={classes.root}>
-            <CardContent>
-                <Grid container>
-                    <Grid item xs={1}/>
-                    <Grid item xs={10}>                       
-                        <Typography className={classes.title}>
-                            {name}
-                        </Typography>
-                        <Typography className={classes.temp}>
-                            {Math.round(currentWeather.temp)}°C
-                        </Typography>
-                        <div className={styles.container}>
-                            <img src={`./svg-weather-icons/${currentWeather.backgroundId}.svg`} alt="weather-icon" className={styles.icon}/>
-                        </div>
-                        <Typography className={classes.description}>
-                            {ChangeDescription(currentWeather.description)}
-                        </Typography>
+        <Link to='/Dashboard' onClick={handlerChange} className={styles.link}>
+            <Card className={classes.root}>
+                <CardContent>
+                    <Grid container>
+                        <Grid item xs={1} />
+                        <Grid item xs={10}>
+                            <Typography className={classes.title} >
+                                {name ? name : <Skeleton />}
+                            </Typography>
+                            <Typography className={classes.temp}>
+                                {currentWeather.temp || currentWeather.temp === 0 ? `${Math.round(currentWeather.temp)} °C` : <Skeleton />}
+                            </Typography>
+                            <div className={styles.container}>
+                                {
+                                    currentWeather.backgroundId ?
+                                        <img
+                                            src={`./svg-weather-icons/${currentWeather.backgroundId}.svg`}
+                                            alt="weather-icon"
+                                            className={styles.icon}
+                                        />
+                                        :
+                                        <Skeleton className={classes.skeletonIcon}/>
+                                }
+
+                            </div>
+                            <Typography className={classes.description}>
+                                {
+                                    currentWeather.description ? 
+                                    ChangeDescription(currentWeather.description)
+                                    :
+                                    <Skeleton/>
+                                }
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={1}>
+                            <IconButton
+                                onClick={() => handlerDelete(name)}
+                                className={classes.button}
+                            >
+                                <BackspaceIcon className={classes.icon} />
+                            </IconButton>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={1}>
-                        <IconButton 
-                            onClick={() => handlerDelete(name)}
-                            className={classes.button}
-                        >
-                            <BackspaceIcon className={classes.icon} />
-                        </IconButton>
-                    </Grid> 
-                </Grid>
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
+        </Link>
     );
 };
 
