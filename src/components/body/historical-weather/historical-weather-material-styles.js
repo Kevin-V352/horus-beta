@@ -11,7 +11,7 @@ const historicalWeatherStyles = makeStyles(theme => ({
     },
     cardContainer: {
         display: 'flex',
-        justifyContent: 'space-around'
+        justifyContent: 'center'
     }
 }));
 

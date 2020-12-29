@@ -6,6 +6,10 @@ const historicalChartStyles = makeStyles(theme => ({
         margin: theme.spacing(1),
         backgroundColor: 'rgba(0, 0, 0, .65)',
     },
+    content: {
+        display: 'flex',
+        justifyContent: 'center'
+    }
 }));
 
 export default historicalChartStyles;

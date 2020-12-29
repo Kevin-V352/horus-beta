@@ -2,7 +2,7 @@
 import React from 'react';
 
 //<--- Redux--->//
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //<--- Material--->//
 import {

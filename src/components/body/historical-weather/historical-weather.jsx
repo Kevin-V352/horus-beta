@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react';
 //<--- Redux--->//
 import { useSelector } from 'react-redux';
 
+//<--- Axios--->//
+import axios from 'axios';
+
 //<--- Material--->//
 import {
     Box,
@@ -17,6 +20,9 @@ import historicalWeatherStyles from './historical-weather-material-styles';
 import HistoricalWeatherChart from './historical-weather-chart/historical-weather-chart';
 import HistoricalChart from './historical-chart/historical-chart';
 
+//<--- API-Key--->//
+const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+
 const HistoricalData = () => {
 
     const classes = historicalWeatherStyles();
@@ -27,9 +33,9 @@ const HistoricalData = () => {
     const [historyArr, setHistoryArr] = useState({});
     const [currentIndex, setCurrentIndex] = useState(4);
 
-    const handlerPastDays = () => {
+    const handlerPastDays = timeZone => {
 
-        const currentDay = new Date().toLocaleDateString();
+        const currentDay = new Date().toLocaleDateString('en-GB', { timeZone: timeZone });
         let resultDay, dayUNIX;
         let historicalArr = [];
 
@@ -38,7 +44,6 @@ const HistoricalData = () => {
             dayUNIX = resultDay.toString().slice(0, resultDay.toString().length - 3);
             historicalArr.unshift(dayUNIX);
         };
-        console.log(historicalArr)
         return historicalArr;
     };
 
@@ -50,34 +55,36 @@ const HistoricalData = () => {
         return week[new Date(resultDay).getUTCDay()] + ". " + new Date(resultDay).getUTCDate().toString(); //Retorna el dia de la semana junto con su numero de fecha.
     };
 
-    const setHistoricalChart = (arr, index) => {
+    const setHistoricalChart = dayUNIX => {
+        const [lat, lon] = weather.coordinates;
         const historicalTemp = [];
-        const historicalHours = []
-        arr.map(hour => historicalTemp.push(Math.round(hour.temp)));
-        for(let i = 0; i < 24; i++) {
-            historicalHours.push(`${i}:00`);
-        };
-        setHistoryArr({
-            historicalTemp,
-            historicalHours
-        });
-        setCurrentIndex(index);
+        const historicalHours = [];
+        axios.get(`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${dayUNIX}&appid=${API_KEY}&lang=es&units=metric`)
+            .then(day => {
+                day.data.hourly.map(hour => historicalTemp.push(Math.round(hour.temp)));
+                for (let i = 0; i < 24; i++) {
+                    historicalHours.push(`${i}:00`);
+                };
+                setHistoryArr({
+                    historicalTemp,
+                    historicalHours
+                });
+            })
+            .catch(error => console.log(`Error en la peticion: ${error}`))
     };
 
     useEffect(() => {
-        setPastDays(handlerPastDays(weather))
-    },[weather]);
+        setPastDays(handlerPastDays(weather.timeZone))
+    }, [weather]);
 
     return (
         <Box className={classes.root}>
-            <Grid container className={classes.cardContainer}> 
+            <Grid container className={classes.cardContainer}>
                 {
                     pastDays.map((pastDay, index) => (
                         <Grid item xs={2} key={index}>
                             <HistoricalWeatherChart
                                 dayUNIX={pastDay}
-                                lat={weather.coordinates[0]}
-                                lon={weather.coordinates[1]}
                                 date={dateFormat(index, weather.timeZone, pastDays.length)}
                                 setHistoricalChart={setHistoricalChart}
                                 index={index}
