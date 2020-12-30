@@ -6,6 +6,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {
     Card,
     CardContent,
+    CardActionArea,
     Typography,
     IconButton,
     Grid,
@@ -21,16 +22,18 @@ const HistoricalWeatherChart = ({ dayUNIX, date, setHistoricalChart, index, curr
     const card = useRef(null);
 
     useEffect(() => {
-        if(index === currentIndex) card.current.click();
-    },[dayUNIX]);
+        if (index === currentIndex) card.current.click();
+    }, [dayUNIX]);
 
     return (
         <Card ref={card} className={classes.root} onClick={() => setHistoricalChart(dayUNIX)}>
-            <CardContent className={classes.content}>
-                <Typography>
-                    {date}
-                </Typography>
-            </CardContent>
+            <CardActionArea>
+                <CardContent className={classes.content}>
+                    <Typography>
+                        {date}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
         </Card>
     );
 };

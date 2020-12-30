@@ -16,6 +16,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {
     Card,
     CardContent,
+    CardActionArea,
     Typography,
     IconButton,
     Grid,
@@ -69,48 +70,50 @@ const CardLocation = ({ lat, lon, name }) => {
     return (
         <Link to='/Dashboard' onClick={handlerChange} className={styles.link}>
             <Card className={classes.root}>
-                <CardContent>
-                    <Grid container>
-                        <Grid item xs={1} />
-                        <Grid item xs={10}>
-                            <Typography className={classes.title} >
-                                {name ? name : <Skeleton />}
-                            </Typography>
-                            <Typography className={classes.temp}>
-                                {currentWeather.temp || currentWeather.temp === 0 ? `${Math.round(currentWeather.temp)} °C` : <Skeleton />}
-                            </Typography>
-                            <div className={styles.container}>
-                                {
-                                    currentWeather.backgroundId ?
-                                        <img
-                                            src={`./svg-weather-icons/${currentWeather.backgroundId}.svg`}
-                                            alt="weather-icon"
-                                            className={styles.icon}
-                                        />
-                                        :
-                                        <Skeleton className={classes.skeletonIcon}/>
-                                }
+                <CardActionArea>
+                    <CardContent>
+                        <Grid container>
+                            <Grid item xs={1} />
+                            <Grid item xs={10}>
+                                <Typography className={classes.title} >
+                                    {name ? name : <Skeleton />}
+                                </Typography>
+                                <Typography className={classes.temp}>
+                                    {currentWeather.temp || currentWeather.temp === 0 ? `${Math.round(currentWeather.temp)} °C` : <Skeleton />}
+                                </Typography>
+                                <div className={styles.container}>
+                                    {
+                                        currentWeather.backgroundId ?
+                                            <img
+                                                src={`./svg-weather-icons/${currentWeather.backgroundId}.svg`}
+                                                alt="weather-icon"
+                                                className={styles.icon}
+                                            />
+                                            :
+                                            <Skeleton className={classes.skeletonIcon} />
+                                    }
 
-                            </div>
-                            <Typography className={classes.description}>
-                                {
-                                    currentWeather.description ? 
-                                    ChangeDescription(currentWeather.description)
-                                    :
-                                    <Skeleton/>
-                                }
-                            </Typography>
+                                </div>
+                                <Typography className={classes.description}>
+                                    {
+                                        currentWeather.description ?
+                                            ChangeDescription(currentWeather.description)
+                                            :
+                                            <Skeleton />
+                                    }
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={1}>
+                                <IconButton
+                                    onClick={() => handlerDelete(name)}
+                                    className={classes.button}
+                                >
+                                    <BackspaceIcon className={classes.icon} />
+                                </IconButton>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={1}>
-                            <IconButton
-                                onClick={() => handlerDelete(name)}
-                                className={classes.button}
-                            >
-                                <BackspaceIcon className={classes.icon} />
-                            </IconButton>
-                        </Grid>
-                    </Grid>
-                </CardContent>
+                    </CardContent>
+                </CardActionArea>
             </Card>
         </Link>
     );

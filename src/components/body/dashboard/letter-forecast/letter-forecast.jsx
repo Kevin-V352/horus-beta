@@ -32,7 +32,7 @@ const LetterForecast = () => {
         const currentDay = new Date().toLocaleDateString('en-GB', { timeZone: timeZone }); //Dia actual de la localizacion buscada.
         const resultDay = new Date().setDate(parseInt(currentDay.slice(0, 2)) + (index + 1)); //Dia de la semana en milisegundos.
 
-        return week[new Date(resultDay).getUTCDay()] + ". " + new Date(resultDay).getUTCDate().toString(); //Retorna el dia de la semana junto con su numero de fecha.
+        return week[new Date(resultDay).getDay()] + ". " + new Date(resultDay).getDate().toString(); //Retorna el dia de la semana junto con su numero de fecha.
     };
 
     const setIcon = day => {
