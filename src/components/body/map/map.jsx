@@ -49,7 +49,7 @@ const Map = () => {
 
     return (
         <Box className={classes.root}>
-            <MapContainer center={[coordinates.lat, coordinates.lon]} zoom={11} scrollWheelZoom={false} style={{ height: '85vh', width: '90%', border: '3px black solid' }}>
+            <MapContainer center={[coordinates.lat, coordinates.lon]} zoom={11} scrollWheelZoom={false} style={{ height: '75vh', width: '90%', border: '3px black solid' }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
