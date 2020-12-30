@@ -25,19 +25,19 @@ const HistoricalDate = ({ date }) => {
                 <Grid container className={classes.gridContainer}>
                     <Grid item xs={12}>
                         <Typography className={classes.date}>
-                            {date}
+                            {date.date}
                         </Typography>
                     </Grid>
                     <Grid container>
                         <Grid item xs={6}>
                             <Typography className={classes.temp}>
-                                hola
+                                Temperatura máxima: {date.maxTemp} °C
                         </Typography>
                         </Grid>
                         <Grid item xs={6}>
                             <Typography className={classes.temp}>
-                                hola
-                        </Typography>
+                                Temperatura mínima: {date.minTemp} °C
+                            </Typography>
                         </Grid>
                     </Grid>
                 </Grid>

@@ -11,7 +11,7 @@ const histoicalDateStyles = makeStyles(theme => ({
         justifyContent: 'center'   
     },
     date: {
-        fontSize: '150%',
+        fontSize: '175%',
         textAlign: 'center'
     },
     gridContainer: {

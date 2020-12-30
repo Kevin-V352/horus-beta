@@ -25,16 +25,16 @@ const letterForecastStyles = makeStyles(theme => ({
     },
     tempBox: {
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         textAlign: 'center'
     },
     tempMax: {
         color: theme.palette.text.primary,
-        fontSize: '220%',
+        fontSize: '200%',
     },
     tempMin: {
         color: theme.palette.text.secondary,
-        fontSize: '190%',
+        fontSize: '110%',
     },
     description: {
         color: theme.palette.text.primary,

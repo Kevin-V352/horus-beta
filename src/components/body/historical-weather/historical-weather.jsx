@@ -33,7 +33,11 @@ const HistoricalData = () => {
     const [pastDays, setPastDays] = useState([]);
     const [historyArr, setHistoryArr] = useState({});
     const [currentIndex, setCurrentIndex] = useState(4);
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState({
+        date: '',
+        maxTemp: '',
+        minTemp: ''
+    });
 
     const handlerPastDays = timeZone => {
 
@@ -62,10 +66,10 @@ const HistoricalData = () => {
         const [lat, lon] = weather.coordinates;
         const historicalTemp = [];
         const historicalHours = [];
-        setCurrentDate(dayUNIX);
         axios.get(`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${dayUNIX}&appid=${API_KEY}&lang=es&units=metric`)
             .then(day => {
                 day.data.hourly.map(hour => historicalTemp.push(Math.round(hour.temp)));
+                setCurrentDate(dayUNIX, historicalTemp);
                 for (let i = 0; i < 24; i++) {
                     historicalHours.push(`${i}:00`);
                 };
@@ -77,14 +81,20 @@ const HistoricalData = () => {
             .catch(error => console.log(`Error en la peticion: ${error}`))
     };
 
-    const setCurrentDate = dayUNIX => {
+    const setCurrentDate = (dayUNIX, historicalTemp) => {
+        const maxTemp = Math.max(...historicalTemp);
+        const minTemp = Math.min(...historicalTemp);
         const selector = new Date(dayUNIX * 1000);
         const week = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
         const months = ['spaceIndex', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
         const dayName = week[selector.getDay()];
         const date = selector.toLocaleDateString().split('/');
         const [day, month, year] = date;
-        setDate(`${dayName}, ${day} de ${months[month]} de ${year}`);
+        setDate({
+            date: `${dayName}, ${day} de ${months[month]} de ${year}`,
+            maxTemp,
+            minTemp
+        });
     };
 
     useEffect(() => {
