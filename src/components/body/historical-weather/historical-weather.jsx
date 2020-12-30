@@ -119,6 +119,7 @@ const HistoricalData = () => {
                 }
             </Grid>
             <HistoricalDate
+                nameLocation={weather.nameLocation}
                 date={date}
             />
             <HistoricalChart

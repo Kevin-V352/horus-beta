@@ -6,16 +6,14 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import {
     Card,
     CardContent,
-    CardActionArea,
     Typography,
-    IconButton,
-    Grid,
+    Grid
 } from '@material-ui/core';
 
 //styles 
 import histoicalDateStyles from './historical-date-material-styles';
 
-const HistoricalDate = ({ date }) => {
+const HistoricalDate = ({ date, nameLocation }) => {
 
     const classes = histoicalDateStyles();
 
@@ -24,22 +22,42 @@ const HistoricalDate = ({ date }) => {
             <CardContent className={classes.content}>
                 <Grid container className={classes.gridContainer}>
                     <Grid item xs={12}>
-                        <Typography className={classes.date}>
-                            {date.date}
-                        </Typography>
+                        {
+                            nameLocation ?
+                                <Typography className={classes.nameLocation}>
+                                    {nameLocation}
+                                </Typography>
+                                :
+                                <Skeleton className={classes.dateSkeleton} />
+                        }
                     </Grid>
-                    <Grid container>
-                        <Grid item xs={6}>
-                            <Typography className={classes.temp}>
-                                Temperatura máxima: {date.maxTemp} °C
-                        </Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography className={classes.temp}>
-                                Temperatura mínima: {date.minTemp} °C
+                    <Grid item xs={12}>
+                        {
+                            date.date ?
+                                <Typography className={classes.date}>
+                                    {date.date}
+                                </Typography>
+                                :
+                                <Skeleton className={classes.dateSkeleton} />
+                        }
+                    </Grid>
+                    {
+                        date.maxTemp ?
+                            <Grid container>
+                                <Grid item xs={6}>
+                                    <Typography className={classes.temp}>
+                                        Temperatura máxima: {date.maxTemp} °C
                             </Typography>
-                        </Grid>
-                    </Grid>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Typography className={classes.temp}>
+                                        Temperatura mínima: {date.minTemp} °C
+                            </Typography>
+                                </Grid>
+                            </Grid>
+                            :
+                            <Skeleton className={classes.tempSkeleton} />
+                    }
                 </Grid>
             </CardContent>
         </Card>

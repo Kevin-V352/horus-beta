@@ -10,6 +10,10 @@ const histoicalDateStyles = makeStyles(theme => ({
         display: 'flex',
         justifyContent: 'center'   
     },
+    nameLocation: {
+        fontSize: '120%',
+        textAlign: 'center'
+    },
     date: {
         fontSize: '175%',
         textAlign: 'center'
@@ -19,6 +23,12 @@ const histoicalDateStyles = makeStyles(theme => ({
     },
     temp: {
         textAlign: 'center'
+    },
+    dateSkeleton: {
+        height: '6.9vh'
+    },
+    tempSkeleton: {
+        width: '100%'
     }
 }));
 

@@ -76,7 +76,7 @@ const LateralMenu = ({ isOpen, closeDrawer }) => {
                     </ListItem>
                 </NavLink>
                 <Divider />
-                <NavLink to='/HistoricalWeather'>
+                <NavLink to='/HistoricalWeather' className={styles.link}>
                     <ListItem button>
                         <ListItemIcon>
                             <TimelineIcon className={classes.icon} />
