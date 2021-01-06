@@ -1,11 +1,11 @@
 //<---React--->//
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 //<--- Redux--->//
 import { useSelector } from 'react-redux';
 
 //<---Leaflet--->//
-import { MapContainer, TileLayer, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, LayersControl, useMap } from 'react-leaflet';
 
 //styles
 import 'leaflet/dist/leaflet.css';
@@ -18,41 +18,28 @@ import mapStyles from './map-material-styles';
 
 const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
-/* const MapFocused = () => {
-    const map = useMap(() => {
-        map.setView(['40.4167047', '-3.7035825']);
-    }); 
+const MapFocused = ({ weather }) => {
+    const map = useMap();
+    useEffect(() => {
+        const [lat, lon] = weather.coordinates;
+        map.flyTo([lat, lon]);
+    }, [weather.coordinates])
     return null
-}; */
+};
 
 const Map = () => {
+
     const classes = mapStyles();
 
     const weather = useSelector((state) => state);
-    const [coordinates, setCoordinates] = useState([]);
-
-    const handlerUpdate = () => {
-        setCoordinates({
-            lat: weather.coordinates[0],
-            lon: weather.coordinates[1]
-        })
-        console.log('SOY LA FUNCION', coordinates)
-    };
-
-    useEffect(() => {
-        console.log('EL USEE', weather.coordinates)
-        handlerUpdate()
-
-    },[weather.coordinates]);
-
-    if(!coordinates.lat) return ( <div>hola</div>)
 
     return (
         <Box className={classes.root}>
-            <MapContainer center={[coordinates.lat, coordinates.lon]} zoom={11} scrollWheelZoom={false} style={{ height: '75vh', width: '90%', border: '3px black solid' }}>
+            <MapContainer center={[weather.coordinates[0], weather.coordinates[1]]} zoom={5} scrollWheelZoom={false} style={{ height: '75vh', width: '90%', border: '3px black solid' }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <MapFocused weather={weather}/>
                 <LayersControl position='topright'>
                     <LayersControl.Overlay name='Precipitación'>
                         <TileLayer
@@ -82,7 +69,7 @@ const Map = () => {
                 </LayersControl>
             </MapContainer>
         </Box>
-    )
-}
+    );
+};
 
 export default Map;
