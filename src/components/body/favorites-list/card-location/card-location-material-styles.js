@@ -31,7 +31,10 @@ const cardLocationStyles = makeStyles(theme => ({
         }
     },
     button: {
-        padding: 0
+        padding: 0,
+        zIndex: 1,
+        position: 'absolute'
+        
     },
     skeletonIcon: {
         width: '100%',

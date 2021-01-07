@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const historicalChartStyles = makeStyles(theme => ({
     root: {
         margin: theme.spacing(1),
-        backgroundColor: 'rgba(0, 0, 0, .65)',
+        marginTop: 0,
+        backgroundColor: theme.palette.background.paper,
         cursor: 'pointer'
     },
     content: {

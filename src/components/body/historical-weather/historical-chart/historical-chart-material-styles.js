@@ -10,8 +10,10 @@ const historicalChartStyles = makeStyles(theme => ({
     skeleton: {
         width: '100%',
         height: '51vh',
-        transform: 'none', 
-        /* marginBottom: '1vh' */
+        transform: 'none',
+    },
+    space: {
+        height: '1.5vh'
     }
 }));
 

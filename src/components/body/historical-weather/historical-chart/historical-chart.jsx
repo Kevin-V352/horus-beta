@@ -6,7 +6,7 @@ import { Bar } from 'react-chartjs-2';
 
 //<---Material--->//
 import Skeleton from '@material-ui/lab/Skeleton';
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 
 //styles 
 import historicalChartStyles from './historical-chart-material-styles';
@@ -28,7 +28,7 @@ const HistoricalChart = ({ data }) => {
                 data={{
                     labels: data.historicalHours,
                     datasets: [{
-                        label: 'Por horas',
+                        label: 'Registro de temperatura por horas',
                         data: data.historicalTemp,
                         borderWidth: 3,
                         backgroundColor: 'rgba( 46, 134, 193, .4)',
@@ -79,9 +79,10 @@ const HistoricalChart = ({ data }) => {
             />
 
             :
-
-            <Skeleton className={classes.skeleton}/>
-
+            <Box>
+                <Skeleton className={classes.skeleton}/>
+                <Box className={classes.space}/>
+            </Box>
             }
         </Container>
     );
