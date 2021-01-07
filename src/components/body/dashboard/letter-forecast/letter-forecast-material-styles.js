@@ -4,19 +4,20 @@ import { makeStyles } from '@material-ui/core/styles';
 //<--- Material styles --->//
 const letterForecastStyles = makeStyles(theme => ({
     root: {
-        justifyContent: 'space-around',
-        backgroundColor: 'rgba(0, 0, 0, .65)',
-        padding: '1%',
-        borderRadius: 5
+        justifyContent: 'center',
     },
     paper: {
-        padding: theme.spacing(5),
+        padding: theme.spacing(2),
         color: theme.palette.text.secondary,
-        backgroundColor: 'rgba(0, 0, 0, .3)',
+        backgroundColor: theme.palette.background.paper,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
+        margin: '9px',
+        maxWidth: '14vw',
+        borderRadius: '5px'
+
     },
     date: {
         color: theme.palette.text.primary,
@@ -26,7 +27,8 @@ const letterForecastStyles = makeStyles(theme => ({
     tempBox: {
         display: 'flex',
         justifyContent: 'space-around',
-        textAlign: 'center'
+        textAlign: 'center',
+        maxWidth: '1rem'
     },
     tempMax: {
         color: theme.palette.text.primary,
@@ -41,7 +43,8 @@ const letterForecastStyles = makeStyles(theme => ({
         textAlign: 'center'
     },
     imageIcon: {
-        height: '100%'
+        height: '100%',
+        width: 'minWidth'
     },
     iconRoot: {
         textAlign: 'center'

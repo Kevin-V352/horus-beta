@@ -42,12 +42,12 @@ const DailyChart = () => {
     };
 
     return (
-        <Container style={{ margin: '2rem', backgroundColor: 'rgba(0, 0, 0, .65)', borderRadius: 5, paddingTop: '1rem' }}>
+        <Container style={{ margin: '.5rem', backgroundColor: 'rgba(0, 0, 0, .65)', borderRadius: 5, paddingTop: '1rem' }}>
             <Line
                 data={{
                     labels: getHour(weather.timeZone),
                     datasets: [{
-                        label: 'Por horas',
+                        label: 'Temperatura por horas',
                         data: getTemp(weather.hourly),
                         borderWidth: 3,
                         backgroundColor: 'rgba( 46, 134, 193, .4)',

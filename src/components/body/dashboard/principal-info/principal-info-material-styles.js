@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const PrincipalInfoStyles = makeStyles(theme => ({
 
     root: {
-        minWidth: '44%',
-        backgroundColor: 'rgba(0, 0, 0, .65)',
-        margin: '1%'
+        minWidth: '50%',
+        backgroundColor: theme.palette.background.paper,
+        marginTop: '1%'
     },
     cardContent: {
         width: '95%',
@@ -18,13 +18,13 @@ const PrincipalInfoStyles = makeStyles(theme => ({
     },
     title: {
         color: theme.palette.text.primary,
-        fontSize: '140%',
+        fontSize: '120%',
         textAlign: 'center', 
         marginBottom: 0
     },
     currentTemp: {
         color: theme.palette.text.primary,
-        fontSize: '400%',
+        fontSize: '250%',
         textAlign: 'center', 
     },
     description: {

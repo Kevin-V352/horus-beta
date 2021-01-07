@@ -44,7 +44,7 @@ const LetterForecast = () => {
         <Grid container className={classes.root}>
             {
                 weather.daily.slice(1, 7).map((day, index) => (
-                    <Grid item lg={1} key={index}>
+                    <Grid item lg={2} key={index} className={classes.paper}>
                         <Typography className={classes.date}>
                             {dateFormat(index, weather.timeZone)}
                         </Typography>

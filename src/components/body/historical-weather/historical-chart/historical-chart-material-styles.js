@@ -9,9 +9,9 @@ const historicalChartStyles = makeStyles(theme => ({
     },
     skeleton: {
         width: '100%',
-        height: '46vh',
-        transform: 'none',
-        
+        height: '51vh',
+        transform: 'none', 
+        /* marginBottom: '1vh' */
     }
 }));
 

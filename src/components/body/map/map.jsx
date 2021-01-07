@@ -36,6 +36,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 //Components 
 import MenuItems from './menu-items/menu-items';
 
+//<---CSS-styles--->//
+import styles from './map.module.css'
+
 const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
 const MapFocused = ({ weather }) => {
@@ -93,7 +96,12 @@ const Map = () => {
                 handleClose={handleClose}
                 options={weather.favoriteLocations}
             />
-            <MapContainer center={[weather.coordinates[0], weather.coordinates[1]]} zoom={5} scrollWheelZoom={false} style={{ height: '75vh', width: '90%', border: '3px black solid' }}>
+            <MapContainer 
+                center={[weather.coordinates[0], weather.coordinates[1]]}
+                className={styles.mapContainer} 
+                scrollWheelZoom={false}
+                zoom={5}
+            >
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
