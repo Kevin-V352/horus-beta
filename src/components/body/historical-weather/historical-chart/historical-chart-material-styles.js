@@ -3,10 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const historicalChartStyles = makeStyles(theme => ({
     root: {
-        backgroundColor: 'rgba(0, 0, 0, .65)', 
+        backgroundColor: theme.palette.background.paper, 
         borderRadius: 5, 
         paddingTop: '1rem',
-        paddingBottom: '1rem'
     },
     skeleton: {
         width: '100%',

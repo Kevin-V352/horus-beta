@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const cardLocationStyles = makeStyles(theme => ({
     root: {
         margin: theme.spacing(1),
-        backgroundColor: 'rgba(0, 0, 0, .65)',
+        backgroundColor: theme.palette.background.paper,
     },
     title: {
         color: theme.palette.text.primary,
