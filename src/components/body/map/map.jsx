@@ -5,13 +5,21 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 //<---Leaflet--->//
-import { MapContainer, TileLayer, LayersControl, useMap } from 'react-leaflet';
+import { 
+    MapContainer, 
+    TileLayer, 
+    LayersControl,
+    Marker, 
+    Popup,
+    useMap 
+} from 'react-leaflet';
 
 //styles
 import 'leaflet/dist/leaflet.css';
+import SelectorIcon from '../../../assets/map/selector-icon.js';
 
 //<--- Material--->//
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
 //styles
 import mapStyles from './map-material-styles';
@@ -40,6 +48,13 @@ const Map = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <MapFocused weather={weather}/>
+                <Marker position={[weather.coordinates[0], weather.coordinates[1]]} icon={SelectorIcon}>
+                    <Popup>
+                        <Typography>
+                            {weather.nameLocation}
+                        </Typography>   
+                    </Popup>
+                </Marker>
                 <LayersControl position='topright'>
                     <LayersControl.Overlay name='Precipitación'>
                         <TileLayer
