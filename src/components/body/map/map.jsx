@@ -124,7 +124,7 @@ const Map = () => {
                             url={`https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${API_KEY}`}
                         />
                     </LayersControl.Overlay>
-                    <LayersControl.Overlay name='Nivel de presion'>
+                    <LayersControl.Overlay name='Nivel de presión'>
                         <TileLayer
                             url={`https://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=${API_KEY}`}
                         />

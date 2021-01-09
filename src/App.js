@@ -37,6 +37,7 @@ const App = () => {
 			backgroundRepeat: 'no-repeat',
 			backgroundSize: 'cover',
 			backgroundAttachment: 'fixed',
+			transition: '2s'
 		}
 	}));
 

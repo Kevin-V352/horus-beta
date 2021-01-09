@@ -42,7 +42,7 @@ const HistoricalDate = ({ date, nameLocation }) => {
                         }
                     </Grid>
                     {
-                        date.maxTemp ?
+                        date.maxTemp !== undefined ?
                             <Grid container>
                                 <Grid item xs={6}>
                                     <Typography className={classes.temp}>
