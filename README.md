@@ -6,7 +6,7 @@ Horus is a tool to be able to visualize meteorological data in real time, anywhe
 
 ### `Introductory video`
 
-[Click me](https://drive.google.com/file/d/1PEV5OFAIdg01wp3z936QjwsWx1lpDAbF/view?usp=sharing)
+[Click me!](https://drive.google.com/file/d/1PEV5OFAIdg01wp3z936QjwsWx1lpDAbF/view?usp=sharing)
 
 ### `Instructions to start the project - coming soon ...`
 
