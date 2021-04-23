@@ -17,5 +17,10 @@ Aplicación para obtener datos del clima.
 
 ## Tecnologías
 
-- ![10](https://i.ibb.co/7Yb8sZf/react.png) React.JS
-- Redux
+- ![10](https://i.ibb.co/Y38c44f/javascript.png) JavaScript
+- ![11](https://i.ibb.co/7Yb8sZf/react.png) React.JS
+- ![12](https://i.ibb.co/0DqxLvB/redux.png) Redux
+- ![13](https://i.ibb.co/yn2c02K/material.png) Material UI
+- ![14](https://i.ibb.co/dp4NjTP/leaflet.png) Leaflet
+
+
