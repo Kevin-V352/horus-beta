@@ -1,14 +1,21 @@
-# Horus - wheater app
+# Horus
+Aplicación para obtener datos del clima.
 
-### `Description`
+## Capturas
 
-Horus is a tool to be able to visualize meteorological data in real time, anywhere in the world.
+![1](https://i.ibb.co/w7Cj18H/1.png)
+![2](https://i.ibb.co/wYF7N9x/2.png)
+![3](https://i.ibb.co/4ZhZCFr/3.png)
+![4](https://i.ibb.co/QfkVrVj/4.png)
+![5](https://i.ibb.co/718mLzc/5.png)
+![6](https://i.ibb.co/fGSw2b8/6.png)
+![7](https://i.ibb.co/4fzgRKK/7.png)
+![8](https://i.ibb.co/PDNDXN7/8.png)
+![9](https://i.ibb.co/fdhVg4w/9.png)
 
-### `Introductory video`
 
-[Click me!](https://drive.google.com/file/d/1PEV5OFAIdg01wp3z936QjwsWx1lpDAbF/view?usp=sharing)
 
-### `Instructions to start the project - coming soon ...`
+## Tecnologías
 
-The project is still in the development phase, these instructions will be released when it is completed.
-
+- ![10](https://i.ibb.co/7Yb8sZf/react.png) React.JS
+- Redux
