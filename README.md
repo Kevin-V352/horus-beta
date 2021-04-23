@@ -23,4 +23,10 @@ Aplicación para obtener datos del clima.
 - ![13](https://i.ibb.co/yn2c02K/material.png) Material UI
 - ![14](https://i.ibb.co/dp4NjTP/leaflet.png) Leaflet
 
+## Recursos
+![15](https://i.ibb.co/ByLcHHq/Open-Weather-Logo.jpg)
+
+Utilizada [OpenWeather API](https://openweathermap.org/api) para consumir datos meteorológicos.
+
+
 
