@@ -1,19 +1,16 @@
 # Horus
-Aplicación para obtener datos del clima.
+Aplicación para obtener datos del clima de una ubicación exacta, utiliza la [API de OpenWeather](https://openweathermap.org/api) para solicitar los recursos y ofrece la posibilidad de:
+- Predicción semanal
+- Guardar ubicaciones favoritas
+- Ver la precipitación, nubes, nivel de presión, velocidad del viento y temperatura de la zona buscada mediante un mapa interactivo
+- Obtener datos históricos del clima
 
-## Capturas
+![horus-preview](https://i.ibb.co/qgsRqx6/horus-preview.png)
 
-![1](https://i.ibb.co/w7Cj18H/1.png)
-![2](https://i.ibb.co/wYF7N9x/2.png)
-![3](https://i.ibb.co/4ZhZCFr/3.png)
-![4](https://i.ibb.co/QfkVrVj/4.png)
-![5](https://i.ibb.co/718mLzc/5.png)
-![6](https://i.ibb.co/fGSw2b8/6.png)
-![7](https://i.ibb.co/4fzgRKK/7.png)
-![8](https://i.ibb.co/PDNDXN7/8.png)
-![9](https://i.ibb.co/fdhVg4w/9.png)
-
-
+## Video de presentación
+#### **`¡IMPORTANTE!`**
+Los videos en modo ventana se reproducen en calidad baja (360p), recomiendo ponerlos en pantalla completa para verlos en 720p o bien ajustar la calidad manualmente. 
+[![horus-yt](https://i.ibb.co/WgGFNQ0/horus-yt.png)](https://drive.google.com/file/d/1PEV5OFAIdg01wp3z936QjwsWx1lpDAbF/view?usp=sharing)
 
 ## Tecnologías
 
@@ -24,9 +21,5 @@ Aplicación para obtener datos del clima.
 - ![14](https://i.ibb.co/dp4NjTP/leaflet.png) Leaflet
 
 ## Recursos
-![15](https://i.ibb.co/ByLcHHq/Open-Weather-Logo.jpg)
-
 Utilizada [OpenWeather API](https://openweathermap.org/api) para consumir datos meteorológicos.
-
-
-
+![15](https://i.ibb.co/ByLcHHq/Open-Weather-Logo.jpg)
